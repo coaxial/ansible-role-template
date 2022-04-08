@@ -1,0 +1,19 @@
+galaxy_info:
+  author: coaxial
+  namespace: coaxial
+  description: Role description
+  role_name: role-name # `rg radarr` to find where to replace role-name
+
+  license: MIT
+
+  min_ansible_version: 5.6.0
+
+  platforms:
+    - name: ubuntu
+      versions:
+        - focal
+        - bionic
+
+  galaxy_tags: []
+
+dependencies: []
