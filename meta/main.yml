@@ -2,7 +2,9 @@ galaxy_info:
   author: coaxial
   namespace: coaxial
   description: Role description
-  role_name: role-name # `rg radarr` to find where to replace role-name
+  # search and replace role name:
+  # `find . -type f -not -path './.git/*' -exec sed -i 's/myrole/actual-role-name/g' {} +`
+  role_name: myrole
 
   license: MIT
 
