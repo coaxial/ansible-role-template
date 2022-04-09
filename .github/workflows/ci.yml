@@ -1,4 +1,5 @@
 ---
+name: CI
 "on":
   pull_request:
   push:
@@ -21,7 +22,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install test dependencies
+      - name: Install lint dependencies
         run: pip3 install -r requirements-lint.txt
 
       - name: Show versions
@@ -35,6 +36,11 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - ubuntu1804
+          - ubuntu2004
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v2
@@ -57,3 +63,5 @@ jobs:
 
       - name: Run molecule
         run: molecule test
+        env:
+          MOLECULE_DISTRO: ${{ matrix.distro }}
